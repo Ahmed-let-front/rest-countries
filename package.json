@@ -25,5 +25,8 @@
     "gh-pages": "^6.3.0",
     "tailwindcss": "^4.3.3",
     "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "@fontsource-variable/nunito-sans": "^5.3.0"
   }
 }

@@ -1,0 +1,25 @@
+:root {
+  --color-text: hsl(200, 15%, 8%);
+  --color-text-sub: hsl(200, 15%, 30%);
+  --color-bg: hsl(0, 0%, 98%);
+  --color-element: hsl(0, 0%, 100%);
+  --color-shadow: rgba(0, 0, 0, 0.08);
+}
+
+:root.dark {
+  --color-text: hsl(0, 0%, 100%);
+  --color-text-sub: hsl(0, 0%, 85%);
+  --color-bg: hsl(207, 26%, 17%);
+  --color-element: hsl(209, 23%, 22%);
+  --color-shadow: rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --color-text: hsl(0, 0%, 100%);
+    --color-text-sub: hsl(0, 0%, 85%);
+    --color-bg: hsl(207, 26%, 17%);
+    --color-element: hsl(209, 23%, 22%);
+    --color-shadow: rgba(0, 0, 0, 0.2);
+  }
+}

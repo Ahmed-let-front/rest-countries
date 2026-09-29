@@ -10,5 +10,203 @@
     <script type="module" src="./src/js/main.js"></script>
     <title>REST Countries | Discover the World</title>
   </head>
-  <body></body>
+  <body>
+    <header class="header-custom" role="banner">
+      <h1 class="text-sm md:text-2xl font-extrabold tracking-tight">Where in the world?</h1>
+      <a
+        href="#theme-modal"
+        class="flex items-center gap-2 text-sm font-semibold hover:opacity-80 transition-opacity cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+        aria-haspopup="true"
+      >
+        <svg class="w-4 h-4 md:w-5 md:h-5">
+          <use href="/sprite.svg#icon-moon"></use>
+        </svg>
+        <span>Dark Mode</span>
+      </a>
+    </header>
+
+    <main class="container-custom">
+      <div
+        class="flex flex-col flex-wrap md:flex-row justify-between items-start md:items-center gap-10 md:gap-4 mb-8 md:mb-12"
+        aria-label="Search and Filter"
+      >
+        <form class="relative w-full md:w-[480px]" role="search">
+          <div class="absolute inset-y-0 left-0 pl-8 flex items-center pointer-events-none">
+            <svg class="w-4 h-4 text-sub">
+              <use href="/sprite.svg#icon-search"></use>
+            </svg>
+          </div>
+          <label for="search" class="sr-only">Search for a country</label>
+          <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="Search for a country..."
+            class="w-full py-3.5 pl-14 pr-4 bg-element text-main shadow-element rounded-sm text-sm font-light placeholder:text-sub focus:outline-none"
+          />
+        </form>
+
+        <details class="group relative w-full md:w-[200px]">
+          <summary
+            class="filter-select [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+            aria-expanded="false"
+          >
+            <span>Filter by Region</span>
+            <svg class="w-4 h-4 text-sub transition-transform duration-200 group-open:rotate-180">
+              <use href="/sprite.svg#icon-chevron"></use>
+            </svg>
+          </summary>
+          <ul
+            class="absolute top-full left-0 mt-1 w-full bg-element text-main shadow-element rounded-sm py-1 z-20 group-open:animate-[slideDown_1s_forwards]"
+          >
+            <li>
+              <a href="#" class="dropdown-item">Africa</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-item">America</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-item">Asia</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-item">Europe</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-item">Oceania</a>
+            </li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-16" aria-label="Countries list">
+        <article
+          class="country-card rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+          tabindex="0"
+        >
+          <figure class="h-40 md:h-40 w-full overflow-hidden">
+            <img src="https://flagcdn.com/w320/de.png" alt="Flag of Germany" class="w-full h-full object-cover" />
+          </figure>
+          <div class="country-card-body">
+            <h2 class="text-lg font-bold mb-1">Germany</h2>
+            <p class="country-stat">Population: <span class="country-stat-value">81,770,900</span></p>
+            <p class="country-stat">Region: <span class="country-stat-value">Europe</span></p>
+            <p class="country-stat">Capital: <span class="country-stat-value">Berlin</span></p>
+          </div>
+        </article>
+
+        <article
+          class="country-card rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+          tabindex="0"
+        >
+          <figure class="h-40 md:h-40 w-full overflow-hidden">
+            <img src="https://flagcdn.com/w320/us.png" alt="Flag of United States" class="w-full h-full object-cover" />
+          </figure>
+          <div class="country-card-body">
+            <h2 class="text-lg font-bold mb-1">United States of America</h2>
+            <p class="country-stat">Population: <span class="country-stat-value">323,947,000</span></p>
+            <p class="country-stat">Region: <span class="country-stat-value">Americas</span></p>
+            <p class="country-stat">Capital: <span class="country-stat-value">Washington, D.C.</span></p>
+          </div>
+        </article>
+
+        <article
+          class="country-card rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+          tabindex="0"
+        >
+          <figure class="h-40 md:h-40 w-full overflow-hidden">
+            <img src="https://flagcdn.com/w320/br.png" alt="Flag of Brazil" class="w-full h-full object-cover" />
+          </figure>
+          <div class="country-card-body">
+            <h2 class="text-lg font-bold mb-1">Brazil</h2>
+            <p class="country-stat">Population: <span class="country-stat-value">206,135,893</span></p>
+            <p class="country-stat">Region: <span class="country-stat-value">Americas</span></p>
+            <p class="country-stat">Capital: <span class="country-stat-value">Brasília</span></p>
+          </div>
+        </article>
+
+        <article
+          class="country-card rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+          tabindex="0"
+        >
+          <figure class="h-40 md:h-40 w-full overflow-hidden">
+            <img src="https://flagcdn.com/w320/is.png" alt="Flag of Iceland" class="w-full h-full object-cover" />
+          </figure>
+          <div class="country-card-body">
+            <h2 class="text-lg font-bold mb-1">Iceland</h2>
+            <p class="country-stat">Population: <span class="country-stat-value">334,300</span></p>
+            <p class="country-stat">Region: <span class="country-stat-value">Europe</span></p>
+            <p class="country-stat">Capital: <span class="country-stat-value">Reykjavik</span></p>
+          </div>
+        </article>
+      </div>
+
+      <div class="hidden">
+        <div aria-label="Back navigation" class="mb-12 md:mb-20 mt-4">
+          <button
+            class="btn-back focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+          >
+            <svg class="w-4 h-4">
+              <use href="/sprite.svg#icon-arrow-left"></use>
+            </svg>
+            Back
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <div id="theme-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="theme-modal-title">
+      <div class="modal-content">
+        <div class="flex justify-between items-center">
+          <h2 id="theme-modal-title" class="text-xl font-bold">Choose Theme</h2>
+          <a
+            href="#"
+            class="text-sub hover:text-main transition-colors p-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+            aria-label="Close dialog"
+          >
+            <svg class="w-5 h-5">
+              <use href="/sprite.svg#icon-close"></use>
+            </svg>
+          </a>
+        </div>
+
+        <div class="flex flex-col gap-3 mt-2">
+          <label
+            class="modal-option rounded-sm focus-within:outline-none focus-within:ring-2 focus-within:ring-main focus-within:ring-offset-2 focus-within:ring-offset-base"
+          >
+            <input type="radio" name="theme" value="light" class="sr-only" checked />
+            <div class="modal-option-box">
+              <span>Light Mode</span>
+              <svg class="w-4 h-4 text-sub">
+                <use href="/sprite.svg#icon-sun"></use>
+              </svg>
+            </div>
+          </label>
+
+          <label
+            class="modal-option rounded-sm focus-within:outline-none focus-within:ring-2 focus-within:ring-main focus-within:ring-offset-2 focus-within:ring-offset-base"
+          >
+            <input type="radio" name="theme" value="dark" class="sr-only" />
+            <div class="modal-option-box">
+              <span>Dark Mode</span>
+              <svg class="w-4 h-4 text-sub">
+                <use href="/sprite.svg#icon-moon"></use>
+              </svg>
+            </div>
+          </label>
+
+          <label
+            class="modal-option rounded-sm focus-within:outline-none focus-within:ring-2 focus-within:ring-main focus-within:ring-offset-2 focus-within:ring-offset-base"
+          >
+            <input type="radio" name="theme" value="system" class="sr-only" />
+            <div class="modal-option-box">
+              <span>System Preference</span>
+              <svg class="w-4 h-4 text-sub">
+                <use href="/sprite.svg#icon-monitor"></use>
+              </svg>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

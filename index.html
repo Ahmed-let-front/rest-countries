@@ -81,7 +81,11 @@
         </details>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-16" aria-label="Countries list">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-16"
+        aria-label="Countries list"
+        id="countries-list"
+      >
         <article
           class="country-card rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
           tabindex="0"
@@ -175,7 +179,7 @@
 
         <form id="theme-form" class="flex flex-col gap-3 mt-2">
           <label class="modal-option rounded-sm border border-transparent has-[:checked]:border-sub">
-            <input type="radio" name="theme" value="light" class="sr-only"  />
+            <input type="radio" name="theme" value="light" class="sr-only" />
             <div class="modal-option-box">
               <span>Light Mode</span>
               <svg class="w-4 h-4 text-sub">
@@ -195,7 +199,7 @@
           </label>
 
           <label class="modal-option rounded-sm focus:border-sub border border-transparent has-[:checked]:border-sub">
-            <input type="radio" name="theme" value="system" class="sr-only" checked/>
+            <input type="radio" name="theme" value="system" class="sr-only" checked />
             <div class="modal-option-box">
               <span>System Preference</span>
               <svg class="w-4 h-4 text-sub">

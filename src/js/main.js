@@ -1,2 +1,2 @@
 import '../css/tailwind.css';
-import './script.js';
+import './controller.js';

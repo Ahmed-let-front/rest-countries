@@ -79,23 +79,39 @@
   }
 
   .dropdown-item {
-    @apply block px-4 py-2 text-sm font-light hover:bg-base cursor-pointer text-main focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base;
+    @apply block px-4 py-2 text-sm font-light hover:bg-base cursor-pointer text-main;
   }
 
-  .modal-overlay {
-    @apply fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm items-center justify-center p-4 opacity-0 transition-opacity duration-300;
+  .modal-dialog {
+    @apply p-0 border-0 bg-transparent w-3/4 max-w-sm m-auto opacity-0 scale-50 transition-all duration-500 ease-in-out transition-discrete;
   }
 
-  .modal-overlay:target {
-    @apply flex opacity-100;
+  .modal-dialog[open] {
+    @apply opacity-100 scale-100;
+  }
+
+  @starting-style {
+    .modal-dialog[open] {
+      @apply opacity-0 scale-95;
+    }
+  }
+
+  .modal-dialog::backdrop {
+    @apply bg-black/0 backdrop-blur-none transition-all duration-500 ease-in-out transition-discrete;
+  }
+
+  .modal-dialog[open]::backdrop {
+    @apply bg-black/60 backdrop-blur-sm;
+  }
+
+  @starting-style {
+    .modal-dialog[open]::backdrop {
+      @apply bg-black/0 backdrop-blur-none;
+    }
   }
 
   .modal-content {
-    @apply bg-element text-main rounded-lg shadow-element w-full max-w-sm p-6 relative flex flex-col gap-5;
-  }
-
-  .modal-overlay:target .modal-content {
-    @apply scale-100;
+    @apply bg-element text-main rounded-lg shadow-element w-full p-6 relative flex flex-col gap-5;
   }
 
   .modal-option {

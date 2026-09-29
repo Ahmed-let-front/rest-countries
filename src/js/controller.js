@@ -1,5 +1,7 @@
 import themeTrigger from './view/themeTrigger.js';
 import * as modal from './modal.js';
+import { View } from './view/view.js';
+const view = new View();
 const controlThemeLocalStorge = () => {
   modal.getThemeModeFromLocalStorege();
   if (!modal.state.isVaildDataFromLS) return;
@@ -24,8 +26,13 @@ const controlThemeBtns = (val, src) => {
   }
   themeTrigger.changeClassInDOCEl(val);
 };
+const controldisplayRESTCountries = async () => {
+  await modal.loadRESTData();
+  view.displayCardCountries(modal.state.contries);
+};
 const init = () => {
   themeTrigger.addHandlerThemeBtns(controlThemeBtns);
   controlThemeLocalStorge();
+  controldisplayRESTCountries();
 };
 init();

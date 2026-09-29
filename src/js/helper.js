@@ -6,7 +6,7 @@ const timeoOut = s => {
     }, s * 1000);
   });
 };
-const AJAX = async url => {
+export const AJAX = async url => {
   const res = await Promise.race([timeoOut(TIME_OUT_SEC), fetch(url)]);
   if (!res.ok) throw new Error(`Failed to fetch data! Status: ${res.status}`);
   return await res.json();

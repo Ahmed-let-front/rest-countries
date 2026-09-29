@@ -38,8 +38,10 @@ class ThemeTrigger {
     this.elements.themeText.textContent = text;
     this.elements.themeIcon.setAttribute('href', srcIcon);
   }
-  updateCheckedAttrInInps(inp) {
-    inp.checked = true;
+  updateCheckedAttrInInps(val) {
+    const targetInput = document.querySelector(`input[value='${val}']`);
+    if (!targetInput) return;
+    targetInput.checked = true;
   }
   addHandlerThemeBtns = handler => {
     this.elements.themeForm.addEventListener('change', e => {

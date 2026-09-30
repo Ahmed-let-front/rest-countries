@@ -11,7 +11,7 @@ export class View {
   clear() {
     this.parentEl.innerHTML = '';
   }
-  displayMessage(meassage) {
+  displayMessage(message) {
     const markup = `
     <div class="col-span-full flex flex-col items-center justify-center py-20 px-4 text-center">
       <div class="bg-element text-main p-5 rounded-full mb-4 shadow-element text-3xl">
@@ -19,7 +19,7 @@ export class View {
             <use href="./sprite.svg#icon-search"></use>
         </svg>
       </div>
-      <p class="text-sub max-w-sm text-sm font-light">${meassage}</p>
+      <p class="text-sub max-w-sm text-sm font-light">${message}</p>
     </div>
   `;
     this.parentEl.innerHTML = markup;
@@ -28,7 +28,9 @@ export class View {
     let markup = '';
     data.forEach(el => {
       markup += `
-      <article
+      <li>
+       <a href="#${el.alpha3Code}">
+        <article
           class="country-card rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
           tabindex="0"
         >
@@ -41,9 +43,14 @@ export class View {
             <p class="country-stat">Region: <span class="country-stat-value">${el.region}</span></p>
             <p class="country-stat">Capital: <span class="country-stat-value">${el.capital}</span></p>
           </div>
-       </article>
+        </article>
+       </a>
+      </li>
       `;
     });
     this.#elements.countriesList.innerHTML = markup;
+  }
+  resetHash() {
+    window.location.hash = '';
   }
 }

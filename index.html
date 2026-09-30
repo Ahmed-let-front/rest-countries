@@ -87,11 +87,12 @@
         </details>
       </div>
 
-      <div
+      <ul
         class="grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-10 md:gap-16 justify-items-center items-center"
         aria-label="Countries list"
         id="countries-list"
-      ></div>
+      ></ul>
+      <div id="countryDetails"></div>
       <div
         class="col-span-full flex justify-center flex-wrap items-center gap-4 my-10 disabled-container"
         id="pagination-container"
@@ -124,18 +125,6 @@
             <use href="./sprite.svg#icon-arrow-right"></use>
           </svg>
         </button>
-      </div>
-      <div class="hidden">
-        <div aria-label="Back navigation" class="mb-12 md:mb-20 mt-4">
-          <button
-            class="btn-back focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
-          >
-            <svg class="w-4 h-4">
-              <use href="/sprite.svg#icon-arrow-left"></use>
-            </svg>
-            Back
-          </button>
-        </div>
       </div>
     </main>
 

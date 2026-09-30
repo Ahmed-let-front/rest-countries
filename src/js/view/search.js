@@ -6,7 +6,6 @@ class Search extends View {
     searchForm: document.getElementById('search-form'),
   };
   parentEl = document.getElementById('countries-list');
-
   addHandlerSearchInput(handler) {
     this.#elements.searchInput.addEventListener('input', e => {
       const query = e.target.value;

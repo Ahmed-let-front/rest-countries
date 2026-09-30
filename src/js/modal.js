@@ -3,55 +3,63 @@ import { AJAX } from './helper.js';
 export const state = {
   themeMode: ['system', ''],
   isDark: window.matchMedia('(prefers-color-scheme: dark)').matches,
-  isVaildDataFromLS: false,
-  contries: {
+  isValidDataFromLS: false,
+  countries: {
     searchCountries: [],
-    currContries: [],
+    currCountries: [],
   },
   get totalPages() {
-    return Math.ceil(this.contries.searchCountries.length / this.resultsNumPages);
+    return Math.ceil(this.countries.searchCountries.length / this.resultsNumPages);
   },
   currPage: 1,
   resultsNumPages: RES_PAGES,
+  currCountryDetails: {},
 };
-export const setThemeModeInLocalStorege = themeMode => {
+export const setThemeModeInLocalStorage = themeMode => {
   localStorage.setItem('themeMode', JSON.stringify(themeMode));
 };
-export const getThemeModeFromLocalStorege = () => {
+export const getThemeModeFromLocalStorage = () => {
   const data = localStorage.getItem('themeMode');
-  if (data.length === 0) return;
-  setNewThemeModal(JSON.parse(data));
-  state.isVaildDataFromLS = true;
+  if (!data || data.length === 0) return;
+  setNewThemeMode(JSON.parse(data));
+  state.isValidDataFromLS = true;
 };
-export const setNewThemeModal = data => {
+export const setNewThemeMode = data => {
   state.themeMode = data;
 };
 export const loadRESTData = async () => {
   const data = await AJAX(API_REST_URL);
   if (data === 0)
     throw new Error('Something went wrong with the server. Please try again later');
-  state.contries.searchCountries = data;
-  state.contries.totalPages = data.length;
+  state.countries.searchCountries = data;
+  state.countries.totalPages = data.length;
   getSearchResultsPage();
 };
 export const searchLoadData = async query => {
   const data = await AJAX(API_REST_URL);
-  const filtredData = data.filter(el =>
+  const filteredData = data.filter(el =>
     el.name.toLowerCase().includes(query.toLowerCase()),
   );
-  if (filtredData.length === 0)
+  if (filteredData.length === 0)
     throw new Error(
       "We couldn't find any countries matching your search. Please check the spelling or try searching for something else.",
     );
-  state.contries.searchCountries = filtredData;
+  state.countries.searchCountries = filteredData;
   getSearchResultsPage();
 };
 export const getSearchResultsPage = (page = state.currPage) => {
   state.currPage = page;
   const start = (state.currPage - 1) * state.resultsNumPages;
   const end = state.currPage * state.resultsNumPages;
-  state.contries.currContries = state.contries.searchCountries.slice(start, end);
+  state.countries.currCountries = state.countries.searchCountries.slice(start, end);
 };
 export const resetCurrPage = () => {
   state.currPage = 1;
+};
+export const loadDetailsData = countryName => {
+  const dataDetails = state.countries.searchCountries.filter(
+    el => el.alpha3Code.toLowerCase() === countryName.toLowerCase(),
+  )?.[0];
+  if (dataDetails?.length === 0) return;
+  state.currCountryDetails = dataDetails;
 };

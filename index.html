@@ -12,7 +12,9 @@
   </head>
   <body>
     <header class="header-custom">
-      <h1 class="text-sm md:text-2xl font-extrabold tracking-tigh">Where in the world?</h1>
+      <h1 class="text-sm md:text-2xl font-extrabold tracking-tigh">
+        Where in the world?
+      </h1>
       <button
         type="button"
         id="theme-trigger"
@@ -34,7 +36,9 @@
         aria-label="Search and Filter"
       >
         <form class="relative w-full md:w-[480px]" role="search" id="search-form">
-          <div class="absolute inset-y-0 left-0 pl-8 flex items-center pointer-events-none">
+          <div
+            class="absolute inset-y-0 left-0 pl-8 flex items-center pointer-events-none"
+          >
             <svg class="w-4 h-4 text-sub">
               <use href="/sprite.svg#icon-search"></use>
             </svg>
@@ -55,7 +59,9 @@
             aria-expanded="false"
           >
             <span>Filter by Region</span>
-            <svg class="w-4 h-4 text-sub transition-transform duration-200 group-open:rotate-180">
+            <svg
+              class="w-4 h-4 text-sub transition-transform duration-200 group-open:rotate-180"
+            >
               <use href="/sprite.svg#icon-chevron"></use>
             </svg>
           </summary>
@@ -86,7 +92,39 @@
         aria-label="Countries list"
         id="countries-list"
       ></div>
-
+      <div
+        class="col-span-full flex justify-center flex-wrap items-center gap-4 my-10 disabled-container"
+        id="pagination-container"
+        aria-label="Pagination Navigation"
+      >
+        <button
+          data-goto="1"
+          class="flex items-center gap-2 px-5 py-2.5 bg-element text-main shadow-element rounded-sm text-sm font-semibold hover:opacity-80 transition-opacity cursor-pointer btn-pag"
+          id="btn-pag-prev"
+        >
+          <svg class="w-4 h-4 text-sub">
+            <use href="./sprite.svg#icon-arrow-left"></use>
+          </svg>
+          <span>Page <span id="numPage" aria-live="polite">--</span></span>
+        </button>
+        <div
+          class="px-4 py-2.5 bg-element text-main shadow-element rounded-sm text-xs font-medium tracking-wide order-1 sm:order-0"
+          id="pages-count-display"
+        >
+          Page <span id="current-page" class="font-bold" aria-live="polite">--</span> of
+          <output id="total-pages" class="font-bold">--</output>
+        </div>
+        <button
+          data-goto="2"
+          class="flex items-center gap-2 px-5 py-2.5 bg-element text-main shadow-element rounded-sm text-sm font-semibold hover:opacity-80 transition-opacity cursor-pointer btn-pag"
+          id="btn-pag-next"
+        >
+          <span>Page <span id="numPage" aria-live="polite">--</span></span>
+          <svg class="w-4 h-4 text-sub">
+            <use href="./sprite.svg#icon-arrow-right"></use>
+          </svg>
+        </button>
+      </div>
       <div class="hidden">
         <div aria-label="Back navigation" class="mb-12 md:mb-20 mt-4">
           <button
@@ -101,7 +139,12 @@
       </div>
     </main>
 
-    <dialog id="theme-modal" aria-modal="true" aria-labelledby="theme-modal-title" class="modal-dialog">
+    <dialog
+      id="theme-modal"
+      aria-modal="true"
+      aria-labelledby="theme-modal-title"
+      class="modal-dialog"
+    >
       <div class="modal-content">
         <div class="flex justify-between items-center">
           <h2 id="theme-modal-title" class="text-xl font-bold">Choose Theme</h2>
@@ -118,7 +161,9 @@
         </div>
 
         <form id="theme-form" class="flex flex-col gap-3 mt-2">
-          <label class="modal-option rounded-sm border border-transparent has-[:checked]:border-sub">
+          <label
+            class="modal-option rounded-sm border border-transparent has-[:checked]:border-sub"
+          >
             <input type="radio" name="theme" value="light" class="sr-only" />
             <div class="modal-option-box">
               <span>Light Mode</span>
@@ -128,7 +173,9 @@
             </div>
           </label>
 
-          <label class="modal-option rounded-sm border border-transparent has-[:checked]:border-sub">
+          <label
+            class="modal-option rounded-sm border border-transparent has-[:checked]:border-sub"
+          >
             <input type="radio" name="theme" value="dark" class="sr-only" />
             <div class="modal-option-box">
               <span>Dark Mode</span>
@@ -138,7 +185,9 @@
             </div>
           </label>
 
-          <label class="modal-option rounded-sm focus:border-sub border border-transparent has-[:checked]:border-sub">
+          <label
+            class="modal-option rounded-sm focus:border-sub border border-transparent has-[:checked]:border-sub"
+          >
             <input type="radio" name="theme" value="system" class="sr-only" checked />
             <div class="modal-option-box">
               <span>System Preference</span>
@@ -150,6 +199,5 @@
         </form>
       </div>
     </dialog>
-
   </body>
 </html>

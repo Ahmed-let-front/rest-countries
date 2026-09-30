@@ -121,6 +121,9 @@
   .modal-option-box {
     @apply flex items-center justify-between px-4 py-3 rounded-sm border border-transparent bg-base text-main text-sm font-semibold transition-all hover:bg-element hover:shadow-element hover:border-sub;
   }
+  .disabled-container {
+    @apply !cursor-not-allowed pointer-events-none blur-[0.2rem];
+  }
 }
 
 @keyframes slideDown {

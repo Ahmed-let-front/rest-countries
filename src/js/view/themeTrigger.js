@@ -28,7 +28,7 @@ class ThemeTrigger {
     this.elements.themeModal.addEventListener('click', e => {
       const targetEl = e.target;
       if (targetEl !== this.elements.themeModal) return;
-      closeModal();
+      this.closeModal();
     });
   }
   changeClassInDOCEl(cls) {

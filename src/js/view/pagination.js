@@ -1,5 +1,4 @@
 import { View } from './view.js';
-import { RES_PAGES } from '../config.js';
 class Pagination extends View {
   parentEl = document.getElementById('countries-list');
   #elements = {

@@ -48,6 +48,7 @@ const controlSearch = async query => {
     modal.resetCurrPage();
     await modal.searchLoadData(query);
     updateUiPagination();
+    if (modal.state.totalPages === 1) pagination.hiddenPagContiner();
     search.displayCardCountries(modal.state.contries.currContries);
   } catch (err) {
     search.displayMessage(err.message);

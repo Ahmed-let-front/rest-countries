@@ -1,7 +1,6 @@
 import themeTrigger from './view/themeTrigger.js';
 import * as modal from './modal.js';
-import { View } from './view/view.js';
-const view = new View();
+import search from './view/search.js';
 const controlThemeLocalStorge = () => {
   modal.getThemeModeFromLocalStorege();
   if (!modal.state.isVaildDataFromLS) return;
@@ -27,11 +26,27 @@ const controlThemeBtns = (val, src) => {
   themeTrigger.changeClassInDOCEl(val);
 };
 const controldisplayRESTCountries = async () => {
-  await modal.loadRESTData();
-  view.displayCardCountries(modal.state.contries);
+  try {
+    search.loadSpinner();
+    await modal.loadRESTData();
+    search.displayCardCountries(modal.state.contries);
+  } catch (err) {
+    search.displayMessage(err.message);
+  }
+};
+const controlSearch = async query => {
+  try {
+    search.loadSpinner();
+    await modal.searchLoadData(query);
+    search.displayCardCountries(modal.state.serchContries);
+  } catch (err) {
+    search.displayMessage(err.message);
+  }
 };
 const init = () => {
   themeTrigger.addHandlerThemeBtns(controlThemeBtns);
+  search.addHandlerSearchInput(controlSearch);
+  search.addHandlerSubmitSearchForm(controlSearch);
   controlThemeLocalStorge();
   controldisplayRESTCountries();
 };

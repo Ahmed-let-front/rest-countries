@@ -33,7 +33,7 @@
         class="flex flex-col flex-wrap md:flex-row justify-between items-start md:items-center gap-10 md:gap-4 mb-8 md:mb-12"
         aria-label="Search and Filter"
       >
-        <form class="relative w-full md:w-[480px]" role="search">
+        <form class="relative w-full md:w-[480px]" role="search" id="search-form">
           <div class="absolute inset-y-0 left-0 pl-8 flex items-center pointer-events-none">
             <svg class="w-4 h-4 text-sub">
               <use href="/sprite.svg#icon-search"></use>
@@ -42,7 +42,7 @@
           <label for="search" class="sr-only">Search for a country</label>
           <input
             type="text"
-            id="search"
+            id="search-input"
             name="search"
             placeholder="Search for a country..."
             class="w-full py-3.5 pl-14 pr-4 bg-element text-main shadow-element rounded-sm text-sm font-light placeholder:text-sub focus:outline-none"
@@ -82,7 +82,7 @@
       </div>
 
       <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-16"
+        class="grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-10 md:gap-16 justify-items-center items-center"
         aria-label="Countries list"
         id="countries-list"
       ></div>
@@ -150,5 +150,6 @@
         </form>
       </div>
     </dialog>
+
   </body>
 </html>

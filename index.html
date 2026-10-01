@@ -53,12 +53,12 @@
           />
         </form>
 
-        <details class="group relative w-full md:w-[200px]">
+        <details class="group relative w-full md:w-[200px]" id="filterByRegionContainer">
           <summary
             class="filter-select [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
             aria-expanded="false"
           >
-            <span>Filter by Region</span>
+            <span id="summary-region">Filter by Region</span>
             <svg
               class="w-4 h-4 text-sub transition-transform duration-200 group-open:rotate-180"
             >
@@ -67,21 +67,37 @@
           </summary>
           <ul
             class="absolute top-full left-0 mt-1 w-full bg-element text-main shadow-element rounded-sm py-1 z-20 group-open:animate-[slideDown_1s_forwards]"
+            id="region-filter"
           >
             <li>
-              <a href="#" class="dropdown-item">Africa</a>
+              <button data-region="All" class="dropdown-item w-full text-left">
+                All
+              </button>
             </li>
             <li>
-              <a href="#" class="dropdown-item">America</a>
+              <button data-region="Africa" class="dropdown-item w-full text-left">
+                Africa
+              </button>
             </li>
             <li>
-              <a href="#" class="dropdown-item">Asia</a>
+              <button data-region="Americas" class="dropdown-item w-full text-left">
+                Americas
+              </button>
             </li>
             <li>
-              <a href="#" class="dropdown-item">Europe</a>
+              <button data-region="Asia" class="dropdown-item w-full text-left">
+                Asia
+              </button>
             </li>
             <li>
-              <a href="#" class="dropdown-item">Oceania</a>
+              <button data-region="Europe" class="dropdown-item w-full text-left">
+                Europe
+              </button>
+            </li>
+            <li>
+              <button data-region="Oceania" class="dropdown-item w-full text-left">
+                Oceania
+              </button>
             </li>
           </ul>
         </details>

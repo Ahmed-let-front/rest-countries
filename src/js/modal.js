@@ -6,6 +6,7 @@ export const state = {
   isValidDataFromLS: false,
   countries: {
     allDataREST: [],
+    regionCountries: [],
     searchCountries: [],
     currCountries: [],
     currbordersCountriesName: [],
@@ -35,12 +36,13 @@ export const loadRESTData = async () => {
     throw new Error('Something went wrong with the server. Please try again later');
   state.countries.searchCountries = data;
   state.countries.allDataREST = data;
+  state.countries.regionCountries = data;
   state.countries.totalPages = data.length;
   getSearchResultsPage();
 };
-export const searchLoadData = async query => {
-  const data = await AJAX(API_REST_URL);
-  const filteredData = data.filter(el =>
+export const searchLoadData = query => {
+  state.countries.searchCountries = state.countries.regionCountries;
+  const filteredData = state.countries.searchCountries.filter(el =>
     el.name.toLowerCase().includes(query.toLowerCase()),
   );
   if (filteredData.length === 0)
@@ -60,15 +62,27 @@ export const resetCurrPage = () => {
   state.currPage = 1;
 };
 export const loadDetailsData = countryName => {
-  const dataDetails = state.countries.allDataREST.filter(
+  const dataDetails = state.countries.allDataREST.find(
     el => el.alpha3Code.toLowerCase() === countryName.toLowerCase(),
-  )?.[0];
-  if (dataDetails?.length === 0) return;
-  state.currCountryDetails = dataDetails;
-  state.countries.currbordersCountriesName = state.currCountryDetails.borders?.map(
-    con =>
-      state.countries.allDataREST.filter(
-        el => el.alpha3Code.toLowerCase() === con.toLowerCase(),
-      )[0].name,
   );
+  if (!dataDetails) return;
+  state.currCountryDetails = dataDetails;
+  state.countries.currbordersCountriesName =
+    state.currCountryDetails.borders?.map(con => {
+      const foundCountry = state.countries.allDataREST.find(
+        el => el.alpha3Code.toLowerCase() === con.toLowerCase(),
+      );
+      return foundCountry ? foundCountry.name : '';
+    }) || [];
+};
+export const loadDataByRegion = region => {
+  if (region === 'All') {
+    state.countries.searchCountries = state.countries.allDataREST;
+    state.countries.regionCountries = state.countries.allDataREST;
+    return;
+  }
+  const filtredData = state.countries.allDataREST.filter(el => el.region === region);
+  if (!filtredData[0]) return;
+  state.countries.searchCountries = filtredData;
+  state.countries.regionCountries = filtredData;
 };

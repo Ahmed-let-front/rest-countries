@@ -3,6 +3,7 @@ import * as modal from './modal.js';
 import search from './view/search.js';
 import pagination from './view/pagination.js';
 import details from './view/details.js';
+import filterByRegion from './view/filterByRegion.js';
 const controlThemeLocalStorage = () => {
   modal.getThemeModeFromLocalStorage();
   if (!modal.state.isValidDataFromLS) return;
@@ -42,13 +43,13 @@ const controlDisplayRESTCountries = async () => {
     search.displayMessage(err.message);
   }
 };
-const controlSearch = async query => {
+const controlSearch = query => {
   try {
     pagination.hidePagContainer();
     search.loadSpinner();
     modal.resetCurrPage();
     details.clear();
-    await modal.searchLoadData(query);
+    modal.searchLoadData(query);
     updateUiPagination();
     if (modal.state.totalPages === 1) pagination.hidePagContainer();
     search.displayCardCountries(modal.state.countries.currCountries);
@@ -77,6 +78,16 @@ const controlDetailsCountry = countryName => {
     modal.state.countries.currbordersCountriesName,
   );
 };
+const controlFiltredByRegion = region => {
+
+  modal.loadDataByRegion(region);
+  modal.resetCurrPage();
+  modal.getSearchResultsPage();
+  filterByRegion.displayCardCountries(modal.state.countries.currCountries);
+  filterByRegion.updateDom(region);
+  filterByRegion.hiddenContainer();
+  updateUiPagination();
+};
 const init = () => {
   details.resetHash();
   themeTrigger.addHandlerThemeBtns(controlThemeBtns);
@@ -84,6 +95,7 @@ const init = () => {
   search.addHandlerSubmitSearchForm(controlSearch);
   pagination.addHandlerBtnPag(controlBtnPag);
   details.addHandlerClickInCard(controlDetailsCountry);
+  filterByRegion.addHandlerClickInContainer(controlFiltredByRegion);
   controlThemeLocalStorage();
   controlDisplayRESTCountries();
 };

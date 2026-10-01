@@ -9,7 +9,7 @@ class ThemeTrigger {
   };
   constructor() {
     this.handleThemeTrigger();
-  }a
+  }
   openModalTheme() {
     this.elements.themeBtn.setAttribute('aria-expanded', true);
     this.elements.themeModal.showModal();

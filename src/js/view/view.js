@@ -35,13 +35,13 @@ export class View {
           tabindex="0"
         >
           <figure class="h-40 md:h-40 w-full overflow-hidden">
-            <img src="${this.back(el.flag)}" alt="Flag of ${this.back(el.name)}" class="w-full h-full object-cover" />
+            <img src="${this.formatProp(el.flag)}" alt="Flag of ${this.formatProp(el.name)}" class="w-full h-full object-cover" />
           </figure>
           <div class="country-card-body">
-            <h2 class="text-lg font-bold mb-1">${this.back(el.name)}</h2>
-            <p class="country-stat">Population: <span class="country-stat-value">${this.back(new Intl.NumberFormat('en-US').format(el.population))}</span></p>
-            <p class="country-stat">Region: <span class="country-stat-value">${this.back(el.region)}</span></p>
-            <p class="country-stat">Capital: <span class="country-stat-value">${this.back(el.capital)}</span></p>
+            <h2 class="text-lg font-bold mb-1">${this.formatProp(el.name)}</h2>
+            <p class="country-stat">Population: <span class="country-stat-value">${this.formatProp(new Intl.NumberFormat('en-US').format(el.population))}</span></p>
+            <p class="country-stat">Region: <span class="country-stat-value">${this.formatProp(el.region)}</span></p>
+            <p class="country-stat">Capital: <span class="country-stat-value">${this.formatProp(el.capital)}</span></p>
           </div>
         </article>
        </a>
@@ -50,8 +50,8 @@ export class View {
     });
     this.#elements.countriesList.innerHTML = markup;
   }
-  back(prop) {
-    return prop ? prop : 'Nothing';
+  formatProp(prop) {
+    return prop !== undefined && prop !== null && prop !== '' ? prop : 'Nothing';
   }
   resetHash() {
     window.location.hash = '';

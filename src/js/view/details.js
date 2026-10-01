@@ -10,16 +10,8 @@ class Details extends View {
   displayCardCountry(el, currBorders) {
     const markup = `
        <div class="flex flex-col xl:flex-row items-center gap-12 lg:gap-20">
-        <figure
-          class="w-full xl:w-1/2 shadow-element rounded-2xl overflow-hidden bg-element"
-        >
-          <img class="w-full h-auto aspect-[4/3] object-cover" alt="flag of ${this.formatProp(el.name)}" src="${this.formatProp(el.flag)}" />
-        </figure>
-
-        <div class="w-full xl:w-1/2 flex flex-col gap-8 text-main">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <h2 class="text-3xl lg:text-4xl font-bold">${this.formatProp(el.name)}</h2>
-            <a
+        <div class="flex flex-col gap-4 w-full xl:w-1/2">
+           <a
               href="#"
               class="inline-flex items-center gap-2 px-8 py-2.5 bg-element text-main shadow-element rounded-sm text-sm font-semibold hover:opacity-80 transition-opacity w-fit"
             >
@@ -28,6 +20,16 @@ class Details extends View {
               </svg>
               <span>Back</span>
             </a>
+            <figure
+              class="w-full  shadow-element rounded-2xl overflow-hidden bg-element"
+            >
+              <img class="w-full h-auto aspect-[4/3] object-cover" alt="flag of ${this.formatProp(el.name)}" src="${this.formatProp(el.flag)}" />
+            </figure>
+         </div>
+
+        <div class="w-full xl:w-1/2 flex flex-col gap-8 text-main">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <h2 class="text-3xl lg:text-4xl font-bold">${this.formatProp(el.name)}</h2>
           </div>
 
           <div class="flex flex-wrap gap-8 md:gap-4">

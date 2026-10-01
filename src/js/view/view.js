@@ -34,7 +34,7 @@ export class View {
           class="country-card rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
           tabindex="0"
         >
-          <figure class="h-40 md:h-40 w-full overflow-hidden">
+          <figure class="h-40  w-65 md:w-60 overflow-hidden">
             <img src="${this.formatProp(el.flag)}" alt="Flag of ${this.formatProp(el.name)}" class="w-full h-full object-cover" />
           </figure>
           <div class="country-card-body">

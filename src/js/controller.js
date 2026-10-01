@@ -79,9 +79,9 @@ const controlDetailsCountry = countryName => {
   );
 };
 const controlFiltredByRegion = region => {
-
   modal.loadDataByRegion(region);
   modal.resetCurrPage();
+  details.clear()
   modal.getSearchResultsPage();
   filterByRegion.displayCardCountries(modal.state.countries.currCountries);
   filterByRegion.updateDom(region);

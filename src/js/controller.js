@@ -47,7 +47,7 @@ const controlSearch = async query => {
     pagination.hidePagContainer();
     search.loadSpinner();
     modal.resetCurrPage();
-    details.clear()
+    details.clear();
     await modal.searchLoadData(query);
     updateUiPagination();
     if (modal.state.totalPages === 1) pagination.hidePagContainer();
@@ -72,7 +72,10 @@ const controlDetailsCountry = countryName => {
   search.clear();
   pagination.hidePagContainer();
   modal.loadDetailsData(countryName);
-  details.displayCardCountry(modal.state.currCountryDetails);
+  details.displayCardCountry(
+    modal.state.currCountryDetails,
+    modal.state.countries.currbordersCountriesName,
+  );
 };
 const init = () => {
   details.resetHash();

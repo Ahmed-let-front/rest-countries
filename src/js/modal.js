@@ -8,6 +8,7 @@ export const state = {
     allDataREST: [],
     searchCountries: [],
     currCountries: [],
+    currbordersCountriesName: [],
   },
   get totalPages() {
     return Math.ceil(this.countries.searchCountries.length / this.resultsNumPages);
@@ -64,4 +65,10 @@ export const loadDetailsData = countryName => {
   )?.[0];
   if (dataDetails?.length === 0) return;
   state.currCountryDetails = dataDetails;
+  state.countries.currbordersCountriesName = state.currCountryDetails.borders?.map(
+    con =>
+      state.countries.allDataREST.filter(
+        el => el.alpha3Code.toLowerCase() === con.toLowerCase(),
+      )[0].name,
+  );
 };

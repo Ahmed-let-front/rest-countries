@@ -7,7 +7,7 @@ class Details extends View {
       handler(countryName);
     });
   }
-  displayCardCountry(el) {
+  displayCardCountry(el, currBorders) {
     const markup = `
        <div class="flex flex-col xl:flex-row items-center gap-12 lg:gap-20">
         <figure
@@ -66,12 +66,12 @@ class Details extends View {
             <div class="flex flex-wrap gap-2">
             ${this.back(
               el.borders
-                ?.map(el => {
+                ?.map((el, i) => {
                   return `
              <a
                 href="#${el}"
                 class="px-6 py-1.5 bg-element text-main shadow-element rounded-sm text-sm font-light hover:opacity-80 transition-opacity"
-              >${el}</a>
+              >${currBorders[i]}</a>
                 `;
                 })
                 .join(''),

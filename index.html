@@ -21,7 +21,7 @@
         aria-haspopup="true"
         aria-expanded="false"
         aria-controls="theme-modal"
-        class="flex items-center gap-2 text-sm font-semibold hover:opacity-80 transition-opacity cursor-pointer rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+        class="flex items-center gap-2 text-sm font-semibold hover:opacity-80 transition-opacity cursor-pointer rounded-sm"
       >
         <svg class="w-4 h-4 md:w-5 md:h-5">
           <use href="/sprite.svg#icon-monitor" id="theme-icon"></use>
@@ -49,13 +49,16 @@
             id="search-input"
             name="search"
             placeholder="Search for a country..."
-            class="w-full py-3.5 pl-14 pr-4 bg-element text-main shadow-element rounded-sm text-sm font-light placeholder:text-sub focus:outline-none"
+            class="w-full py-3.5 pl-14 pr-4 bg-element text-main shadow-element rounded-sm text-sm font-light placeholder:text-sub duration-300"
           />
         </form>
 
-        <details class="group relative w-full md:w-[200px]" id="filterByRegionContainer">
+        <details
+          class="group relative w-full md:w-[200px]"
+          id="filterByRegionContainer"
+        >
           <summary
-            class="filter-select [&::-webkit-details-marker]:hidden rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base"
+            class="filter-select [&::-webkit-details-marker]:hidden rounded-sm"
             aria-expanded="false"
           >
             <span id="summary-region">Filter by Region</span>
@@ -104,7 +107,7 @@
       </div>
 
       <ul
-        class="grid grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] gap-10 md:gap-16 justify-items-center items-center"
+        class="grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-10 md:gap-16 justify-items-center items-center"
         aria-label="Countries list"
         id="countries-list"
       ></ul>
@@ -156,7 +159,7 @@
           <button
             type="button"
             id="btn-close-modal-theme"
-            class="text-sub hover:text-main transition-colors p-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 focus-visible:ring-offset-base cursor-pointer"
+            class="text-sub hover:text-main transition-colors p-1 rounded-sm cursor-pointer"
             aria-label="Close dialog"
           >
             <svg class="w-5 h-5">
@@ -168,6 +171,7 @@
         <form id="theme-form" class="flex flex-col gap-3 mt-2">
           <label
             class="modal-option rounded-sm border border-transparent has-[:checked]:border-sub"
+            tabindex="0"
           >
             <input type="radio" name="theme" value="light" class="sr-only" />
             <div class="modal-option-box">
@@ -180,6 +184,7 @@
 
           <label
             class="modal-option rounded-sm border border-transparent has-[:checked]:border-sub"
+            tabindex="0"
           >
             <input type="radio" name="theme" value="dark" class="sr-only" />
             <div class="modal-option-box">
@@ -191,7 +196,8 @@
           </label>
 
           <label
-            class="modal-option rounded-sm focus:border-sub border border-transparent has-[:checked]:border-sub"
+            class="modal-option rounded-sm border border-transparent has-[:checked]:border-sub"
+            tabindex="0"
           >
             <input type="radio" name="theme" value="system" class="sr-only" checked />
             <div class="modal-option-box">

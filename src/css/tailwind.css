@@ -21,6 +21,14 @@
   body {
     @apply bg-base text-main font-sans antialiased transition-colors duration-300;
   }
+
+  :focus-visible {
+    @apply ring-2 ring-offset-2  ring-base;
+  }
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
   ::-webkit-scrollbar {
     width: 10px;
   }

@@ -47,6 +47,7 @@ const controlSearch = async query => {
     pagination.hidePagContainer();
     search.loadSpinner();
     modal.resetCurrPage();
+    details.clear()
     await modal.searchLoadData(query);
     updateUiPagination();
     if (modal.state.totalPages === 1) pagination.hidePagContainer();

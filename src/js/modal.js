@@ -5,6 +5,7 @@ export const state = {
   isDark: window.matchMedia('(prefers-color-scheme: dark)').matches,
   isValidDataFromLS: false,
   countries: {
+    allDataREST: [],
     searchCountries: [],
     currCountries: [],
   },
@@ -32,6 +33,7 @@ export const loadRESTData = async () => {
   if (data === 0)
     throw new Error('Something went wrong with the server. Please try again later');
   state.countries.searchCountries = data;
+  state.countries.allDataREST = data;
   state.countries.totalPages = data.length;
   getSearchResultsPage();
 };
@@ -57,7 +59,7 @@ export const resetCurrPage = () => {
   state.currPage = 1;
 };
 export const loadDetailsData = countryName => {
-  const dataDetails = state.countries.searchCountries.filter(
+  const dataDetails = state.countries.allDataREST.filter(
     el => el.alpha3Code.toLowerCase() === countryName.toLowerCase(),
   )?.[0];
   if (dataDetails?.length === 0) return;

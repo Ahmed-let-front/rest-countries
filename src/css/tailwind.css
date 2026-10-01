@@ -10,7 +10,7 @@
   --color-sub: var(--color-text-sub);
   --color-base: var(--color-bg);
   --color-element: var(--color-element);
-  --shadow-element: 0 0 10px var(--color-shadow);
+  --shadow-element: 10px 10px 40px var(--color-shadow);
 }
 
 @theme {

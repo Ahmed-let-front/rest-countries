@@ -25,7 +25,7 @@ Welcome to the **REST Countries App**, a modern, highly responsive, and feature-
 
 ## Logic Flowchart
 
-
+![flowchart](public/flowchart.png)
 
 ---
 

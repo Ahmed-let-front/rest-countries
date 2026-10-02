@@ -17,7 +17,7 @@ Welcome to the **REST Countries App**, a modern, highly responsive, and feature-
 
 ![Lighthouse 400/400 Score](public/lighthouse.png)
 
-> **⚠️ Performance Note:** The performance score is currently sitting around 85+ due to a performance bottleneck that is actively being investigated. It will be optimized back to a 400/400 score once the issue is fully resolved.
+
 
 ## AI Collaboration
 

@@ -9,8 +9,8 @@
     />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>REST Countries | Discover the World</title>
-    <script type="module" crossorigin src="/rest-countries/assets/index-BNq78B80.js"></script>
-    <link rel="stylesheet" crossorigin href="/rest-countries/assets/index-BZHRj7du.css">
+    <script type="module" crossorigin src="/rest-countries/assets/index-BRvWmFTp.js"></script>
+    <link rel="stylesheet" crossorigin href="/rest-countries/assets/index-BTwTE30f.css">
   </head>
   <body>
     <header class="header-custom">
@@ -35,9 +35,12 @@
     <main class="container-custom">
       <div
         class="flex flex-col flex-wrap md:flex-row justify-between items-start md:items-center gap-10 md:gap-4 mb-8 md:mb-12"
-        aria-label="Search and Filter"
       >
-        <form class="relative w-full md:w-[480px]" role="search" id="search-form">
+        <form
+          class="relative w-full md:w-[480px] flex flex-row gap-4"
+          role="search"
+          id="search-form"
+        >
           <div
             class="absolute inset-y-0 left-0 pl-8 flex items-center pointer-events-none"
           >
@@ -53,8 +56,13 @@
             placeholder="Search for a country..."
             class="w-full py-3.5 pl-14 pr-4 bg-element text-main shadow-element rounded-sm text-sm font-light placeholder:text-sub duration-300"
           />
+          <button
+            type="submit"
+            class="px-6 py-3.5 bg-element text-main rounded-sm shadow-element text-sm font-semibold hover:opacity-80 transition-opacity cursor-pointer"
+          >
+            Search
+          </button>
         </form>
-
         <details class="group relative w-full md:w-[200px]" id="filterByRegionContainer">
           <summary
             class="filter-select [&::-webkit-details-marker]:hidden rounded-sm"
@@ -72,32 +80,32 @@
             id="region-filter"
           >
             <li>
-              <button data-region="All" class="dropdown-item w-full text-left">
+              <button data-region="All" type="button" class="dropdown-item w-full text-left">
                 All
               </button>
             </li>
             <li>
-              <button data-region="Africa" class="dropdown-item w-full text-left">
+              <button data-region="Africa" type="button" class="dropdown-item w-full text-left">
                 Africa
               </button>
             </li>
             <li>
-              <button data-region="Americas" class="dropdown-item w-full text-left">
+              <button data-region="Americas" type="button" class="dropdown-item w-full text-left">
                 Americas
               </button>
             </li>
             <li>
-              <button data-region="Asia" class="dropdown-item w-full text-left">
+              <button data-region="Asia" type="button" class="dropdown-item w-full text-left">
                 Asia
               </button>
             </li>
             <li>
-              <button data-region="Europe" class="dropdown-item w-full text-left">
+              <button data-region="Europe" type="button" class="dropdown-item w-full text-left">
                 Europe
               </button>
             </li>
             <li>
-              <button data-region="Oceania" class="dropdown-item w-full text-left">
+              <button data-region="Oceania" type="button" class="dropdown-item w-full text-left">
                 Oceania
               </button>
             </li>
@@ -106,7 +114,7 @@
       </div>
 
       <ul
-        class="grid grid-cols-[repeat(auto-fill,minmax(12rem,1fr))] min-h-[40rem] gap-10 md:gap-16 justify-items-center items-center"
+        class="grid grid-cols-[repeat(auto-fill,minmax(14rem,1fr))] min-h-[40rem] gap-10 md:gap-16 justify-items-center items-center"
         aria-label="Countries list"
         id="countries-list"
       ></ul>
@@ -114,17 +122,17 @@
       <div
         class="col-span-full flex justify-center flex-wrap items-center gap-4 mt-10 disabled-container"
         id="pagination-container"
-        aria-label="Pagination Navigation"
       >
         <button
           data-goto="1"
           class="flex items-center gap-2 px-5 py-2.5 bg-element text-main shadow-element rounded-sm text-sm font-semibold hover:opacity-80 transition-opacity cursor-pointer btn-pag"
+          type="button"
           id="btn-pag-prev"
         >
           <svg class="w-4 h-4 text-sub">
             <use href="./sprite.svg#icon-arrow-left"></use>
           </svg>
-          <span>Page <span id="numPage" aria-live="polite">--</span></span>
+          <span>Page <span class="numPage" aria-live="polite">--</span></span>
         </button>
         <div
           class="px-4 py-2.5 bg-element text-main shadow-element rounded-sm text-xs font-medium tracking-wide order-1 sm:order-0"
@@ -136,9 +144,10 @@
         <button
           data-goto="2"
           class="flex items-center gap-2 px-5 py-2.5 bg-element text-main shadow-element rounded-sm text-sm font-semibold hover:opacity-80 transition-opacity cursor-pointer btn-pag"
+          type="button"
           id="btn-pag-next"
         >
-          <span>Page <span id="numPage" aria-live="polite">--</span></span>
+          <span>Page <span class="numPage" aria-live="polite">--</span></span>
           <svg class="w-4 h-4 text-sub">
             <use href="./sprite.svg#icon-arrow-right"></use>
           </svg>
@@ -167,18 +176,18 @@
           </button>
         </div>
 
-        <form id="theme-form" class="flex flex-col gap-3 mt-2">
+        <div id="theme-form" class="flex flex-col gap-3 mt-2">
           <label
             class="modal-option rounded-sm border border-transparent has-[:checked]:border-sub"
             tabindex="0"
           >
             <input type="radio" name="theme" value="light" class="sr-only" />
-            <div class="modal-option-box">
+            <span class="modal-option-box">
               <span>Light Mode</span>
               <svg class="w-4 h-4 text-sub">
                 <use href="/rest-countries/sprite.svg#icon-sun"></use>
               </svg>
-            </div>
+            </span>
           </label>
 
           <label
@@ -186,12 +195,12 @@
             tabindex="0"
           >
             <input type="radio" name="theme" value="dark" class="sr-only" />
-            <div class="modal-option-box">
+            <span class="modal-option-box">
               <span>Dark Mode</span>
               <svg class="w-4 h-4 text-sub">
                 <use href="/rest-countries/sprite.svg#icon-moon"></use>
               </svg>
-            </div>
+            </span>
           </label>
 
           <label
@@ -199,18 +208,20 @@
             tabindex="0"
           >
             <input type="radio" name="theme" value="system" class="sr-only" checked />
-            <div class="modal-option-box">
+            <span class="modal-option-box">
               <span>System Preference</span>
               <svg class="w-4 h-4 text-sub">
                 <use href="/rest-countries/sprite.svg#icon-monitor"></use>
               </svg>
-            </div>
+            </span>
           </label>
-        </form>
+        </div>
       </div>
     </dialog>
 
-    <footer class="hidden md:block -mt-7 absolute left-0 right-0 text-center text-xs font-light text-sub">
+    <footer
+      class="hidden md:block -mt-7 absolute left-0 right-0 text-center text-xs font-light text-sub"
+    >
       Challenge by
       <a
         href="https://www.frontendmentor.io?ref=challenge"

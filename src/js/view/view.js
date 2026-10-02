@@ -30,10 +30,10 @@ export class View {
     data.forEach(el => {
       const formatName = el.name.split('(')[0];
       markup += `
-      <li>
+      <li class="w-full">
        <a href="#${el.alpha3Code}" class="country-card rounded-2xl overflow-hidden">
         <article>
-          <figure class="h-40  w-65 sm:w-60 overflow-hidden">
+          <figure class="h-40  w-full overflow-hidden">
             <img src="${this.formatProp(el.flag)}" alt="Flag of ${this.formatProp(el.name)}" class="w-full h-full object-cover" />
           </figure>
           <div class="country-card-body">

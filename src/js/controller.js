@@ -39,6 +39,7 @@ const controlDisplayRESTCountries = async () => {
     if (!modal.state.countries?.searchCountries[0]) await modal.loadRESTData();
     updateUiPagination();
     search.displayCardCountries(modal.state.countries.currCountries);
+    search.updateContainerListCountriesHight();
   } catch (err) {
     search.displayMessage(err.message);
   }
@@ -81,7 +82,7 @@ const controlDetailsCountry = countryName => {
 const controlFiltredByRegion = region => {
   modal.loadDataByRegion(region);
   modal.resetCurrPage();
-  details.clear()
+  details.clear();
   modal.getSearchResultsPage();
   filterByRegion.displayCardCountries(modal.state.countries.currCountries);
   filterByRegion.updateDom(region);

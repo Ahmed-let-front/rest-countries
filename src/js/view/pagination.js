@@ -9,8 +9,8 @@ class Pagination extends View {
     paginationContainer: document.getElementById('pagination-container'),
   };
   updateDom(currPage, countriesNum) {
-    const numPageNextEl = this.#elements.btnNext.querySelector('#numPage');
-    const numPagePrevEl = this.#elements.btnPrev.querySelector('#numPage');
+    const numPageNextEl = this.#elements.btnNext.querySelector('.numPage');
+    const numPagePrevEl = this.#elements.btnPrev.querySelector('.numPage');
     this.#elements.btnPrev.dataset.goto = currPage - 1 <= 0 ? countriesNum : currPage - 1;
     this.#elements.btnNext.dataset.goto = currPage + 1 > countriesNum ? 1 : currPage + 1;
     numPageNextEl.textContent = currPage + 1 > countriesNum ? 1 : currPage + 1;
@@ -24,7 +24,7 @@ class Pagination extends View {
     this.#elements.paginationContainer.addEventListener('click', e => {
       const btn = e.target.closest('button');
       if (!btn) return;
-      let goto = +btn.dataset.goto;
+      const goto = +btn.dataset.goto;
       handler(goto);
     });
   }

@@ -26,7 +26,9 @@ export class View {
   }
   displayCardCountries(data) {
     let markup = '';
+
     data.forEach(el => {
+      const formatName = el.name.split('(')[0];
       markup += `
       <li>
        <a href="#${el.alpha3Code}">
@@ -35,7 +37,7 @@ export class View {
             <img src="${this.formatProp(el.flag)}" alt="Flag of ${this.formatProp(el.name)}" class="w-full h-full object-cover" />
           </figure>
           <div class="country-card-body">
-            <h2 class="text-lg font-bold mb-1">${this.formatProp(el.name)}</h2>
+            <h2 class="text-xl font-bold mb-1 max-md:w-45">${this.formatProp(formatName)}</h2>
             <p class="country-stat">Population: <span class="country-stat-value">${this.formatProp(new Intl.NumberFormat('en-US').format(el.population))}</span></p>
             <p class="country-stat">Region: <span class="country-stat-value">${this.formatProp(el.region)}</span></p>
             <p class="country-stat">Capital: <span class="country-stat-value">${this.formatProp(el.capital)}</span></p>
@@ -52,5 +54,8 @@ export class View {
   }
   resetHash() {
     window.location.hash = '';
+  }
+  updateContainerListCountriesHight() {
+    this.#elements.countriesList.classList.remove('min-h-[40rem]');
   }
 }

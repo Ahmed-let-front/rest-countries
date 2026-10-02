@@ -10,7 +10,7 @@
       <p class="text-sub max-w-sm text-sm font-light">${e}</p>
     </div>
   `;this.parentEl.innerHTML=t}displayCardCountries(e){let t=``;e.forEach(e=>{let n=e.name.split(`(`)[0];t+=`
-      <li class="w-[90%] md:w-fit">
+      <li class="w-[90%] md:w-60">
        <a href="#${e.alpha3Code}" class="country-card rounded-xl overflow-hidden">
         <article>
           <figure class="h-40  w-full overflow-hidden">

@@ -47,7 +47,7 @@
               <use href="/sprite.svg#icon-search"></use>
             </svg>
           </div>
-          <label for="search" class="sr-only">Search for a country</label>
+          <label for="search-input" class="sr-only">Search for a country</label>
           <input
             type="text"
             id="search-input"
@@ -79,32 +79,56 @@
             id="region-filter"
           >
             <li>
-              <button data-region="All" type="button" class="dropdown-item w-full text-left">
+              <button
+                data-region="All"
+                type="button"
+                class="dropdown-item w-full text-left"
+              >
                 All
               </button>
             </li>
             <li>
-              <button data-region="Africa" type="button" class="dropdown-item w-full text-left">
+              <button
+                data-region="Africa"
+                type="button"
+                class="dropdown-item w-full text-left"
+              >
                 Africa
               </button>
             </li>
             <li>
-              <button data-region="Americas" type="button" class="dropdown-item w-full text-left">
+              <button
+                data-region="Americas"
+                type="button"
+                class="dropdown-item w-full text-left"
+              >
                 Americas
               </button>
             </li>
             <li>
-              <button data-region="Asia" type="button" class="dropdown-item w-full text-left">
+              <button
+                data-region="Asia"
+                type="button"
+                class="dropdown-item w-full text-left"
+              >
                 Asia
               </button>
             </li>
             <li>
-              <button data-region="Europe" type="button" class="dropdown-item w-full text-left">
+              <button
+                data-region="Europe"
+                type="button"
+                class="dropdown-item w-full text-left"
+              >
                 Europe
               </button>
             </li>
             <li>
-              <button data-region="Oceania" type="button" class="dropdown-item w-full text-left">
+              <button
+                data-region="Oceania"
+                type="button"
+                class="dropdown-item w-full text-left"
+              >
                 Oceania
               </button>
             </li>
@@ -113,7 +137,7 @@
       </div>
 
       <ul
-        class="grid grid-cols-[repeat(auto-fill,minmax(14rem,1fr))] min-h-[40rem] gap-10 md:gap-16 justify-items-center items-center"
+        class="grid grid-cols-[repeat(auto-fit,minmax(14rem,1fr))]  min-h-[40rem] gap-10 md:gap-16 justify-items-center items-center"
         aria-label="Countries list"
         id="countries-list"
       ></ul>
@@ -177,10 +201,17 @@
 
         <div id="theme-form" class="flex flex-col gap-3 mt-2">
           <label
+            for="theme-light"
             class="modal-option rounded-sm border border-transparent has-[:checked]:border-sub"
             tabindex="0"
           >
-            <input type="radio" name="theme" value="light" class="sr-only" />
+            <input
+              type="radio"
+              id="theme-light"
+              name="theme"
+              value="light"
+              class="sr-only"
+            />
             <span class="modal-option-box">
               <span>Light Mode</span>
               <svg class="w-4 h-4 text-sub">
@@ -190,10 +221,17 @@
           </label>
 
           <label
+            for="theme-dark"
             class="modal-option rounded-sm border border-transparent has-[:checked]:border-sub"
             tabindex="0"
           >
-            <input type="radio" name="theme" value="dark" class="sr-only" />
+            <input
+              type="radio"
+              id="theme-dark"
+              name="theme"
+              value="dark"
+              class="sr-only"
+            />
             <span class="modal-option-box">
               <span>Dark Mode</span>
               <svg class="w-4 h-4 text-sub">
@@ -203,10 +241,18 @@
           </label>
 
           <label
+            for="theme-system"
             class="modal-option rounded-sm border border-transparent has-[:checked]:border-sub"
             tabindex="0"
           >
-            <input type="radio" name="theme" value="system" class="sr-only" checked />
+            <input
+              type="radio"
+              id="theme-system"
+              name="theme"
+              value="system"
+              class="sr-only"
+              checked
+            />
             <span class="modal-option-box">
               <span>System Preference</span>
               <svg class="w-4 h-4 text-sub">

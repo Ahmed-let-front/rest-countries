@@ -6,16 +6,10 @@ import details from './view/details.js';
 import filterByRegion from './view/filterByRegion.js';
 const controlThemeLocalStorage = () => {
   modal.getThemeModeFromLocalStorage();
-  if (!modal.state.isValidDataFromLS) return;
+  if (modal.state.isValidDataFromLS) return;
   const [val, src] = modal.state.themeMode;
   themeTrigger.updateThemeUi(val, src);
   themeTrigger.updateCheckedAttrInInps(val);
-  if (val === 'system') {
-    if (modal.state.isDark) themeTrigger.changeClassInDOCEl('dark');
-    else themeTrigger.changeClassInDOCEl('light');
-    return;
-  }
-  themeTrigger.changeClassInDOCEl(val);
 };
 const controlThemeBtns = (val, src) => {
   modal.setNewThemeMode([val, src]);
@@ -89,15 +83,15 @@ const controlFiltredByRegion = region => {
   filterByRegion.hiddenContainer();
   updateUiPagination();
 };
-const init = () => {
-  details.resetHash();
+const init = async () => {
+  controlThemeLocalStorage();
+  await controlDisplayRESTCountries();
+  details.addHandleInitialHash(controlDetailsCountry);
   themeTrigger.addHandlerThemeBtns(controlThemeBtns);
   search.addHandlerSearchInput(controlSearch);
   search.addHandlerSubmitSearchForm(controlSearch);
   pagination.addHandlerBtnPag(controlBtnPag);
   details.addHandlerClickInCard(controlDetailsCountry);
   filterByRegion.addHandlerClickInContainer(controlFiltredByRegion);
-  controlThemeLocalStorage();
-  controlDisplayRESTCountries();
 };
 init();

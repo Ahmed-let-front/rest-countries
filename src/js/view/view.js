@@ -31,8 +31,8 @@ export class View {
       const formatName = el.name.split('(')[0];
       markup += `
       <li>
-       <a href="#${el.alpha3Code}">
-        <article class="country-card rounded-md">
+       <a href="#${el.alpha3Code}" class="country-card rounded-2xl overflow-hidden">
+        <article>
           <figure class="h-40  w-65 sm:w-60 overflow-hidden">
             <img src="${this.formatProp(el.flag)}" alt="Flag of ${this.formatProp(el.name)}" class="w-full h-full object-cover" />
           </figure>
@@ -51,9 +51,6 @@ export class View {
   }
   formatProp(prop) {
     return prop !== undefined && prop !== null && prop !== '' ? prop : 'Nothing';
-  }
-  resetHash() {
-    window.location.hash = '';
   }
   updateContainerListCountriesHight() {
     this.#elements.countriesList.classList.remove('min-h-[40rem]');

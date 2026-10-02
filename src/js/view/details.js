@@ -7,7 +7,7 @@ class Details extends View {
       handler(countryName);
     });
   }
-  displayCardCountry(els, currBorders) {
+  displayCardCountry(con, currBorders) {
     const markup = `
        <div class="flex flex-col xl:flex-row items-center gap-12 lg:gap-20">
         <div class="flex flex-col gap-4 w-full xl:w-1/2">
@@ -23,42 +23,42 @@ class Details extends View {
             <figure
               class="w-full  shadow-element rounded-2xl overflow-hidden bg-element"
             >
-              <img class="w-full h-auto aspect-[4/3] object-cover" alt="flag of ${this.formatProp(els.name)}" src="${this.formatProp(els.flag)}" />
+              <img class="w-full h-auto aspect-[4/3] object-cover" alt="flag of ${this.formatProp(con.name)}" src="${this.formatProp(con.flag)}" />
             </figure>
          </div>
 
         <div class="w-full xl:w-1/2 flex flex-col gap-8 text-main">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <h2 class="text-3xl lg:text-4xl font-bold">${this.formatProp(els.name)}</h2>
+            <h2 class="text-3xl lg:text-4xl font-bold">${this.formatProp(con.name)}</h2>
           </div>
 
           <div class="flex flex-wrap gap-8 md:gap-4">
             <div class="flex flex-col gap-2">
               <p class="text-sm font-semibold">
-                Native Name: <span class="font-light text-sub">${this.formatProp(els.nativeName)}</span>
+                Native Name: <span class="font-light text-sub">${this.formatProp(con.nativeName)}</span>
               </p>
               <p class="text-sm font-semibold">
-                Population: <span class="font-light text-sub">${this.formatProp(new Intl.NumberFormat('en-US').format(els.population))}</span>
+                Population: <span class="font-light text-sub">${this.formatProp(new Intl.NumberFormat('en-US').format(con.population))}</span>
               </p>
               <p class="text-sm font-semibold">
-                Region: <span class="font-light text-sub">${this.formatProp(els.region)}</span>
+                Region: <span class="font-light text-sub">${this.formatProp(con.region)}</span>
               </p>
               <p class="text-sm font-semibold">
-                Sub Region: <span class="font-light text-sub">${this.formatProp(els.subregion)}</span>
+                Sub Region: <span class="font-light text-sub">${this.formatProp(con.subregion)}</span>
               </p>
               <p class="text-sm font-semibold">
-                Capital: <span class="font-light text-sub">${this.formatProp(els.capital)}</span>
+                Capital: <span class="font-light text-sub">${this.formatProp(con.capital)}</span>
               </p>
             </div>
             <div class="flex flex-col gap-2">
               <p class="text-sm font-semibold">
-                Top Level Domain: <span class="font-light text-sub">${this.formatProp(els.topLevelDomain?.[0])}</span>
+                Top Level Domain: <span class="font-light text-sub">${this.formatProp(con.topLevelDomain?.[0])}</span>
               </p>
               <p class="text-sm font-semibold">
-                Currencies: <span class="font-light text-sub">${this.formatProp(els.currencies?.[0].name)}</span>
+                Currencies: <span class="font-light text-sub">${this.formatProp(con.currencies?.[0].name)}</span>
               </p>
               <p class="text-sm font-semibold">
-                Languages: <span class="font-light text-sub">${this.formatProp(els.languages.map(el => el.nativeName).join(' ,'))}</span>
+                Languages: <span class="font-light text-sub">${this.formatProp(con.languages.map(el => el.nativeName).join(' ,'))}</span>
               </p>
             </div>
           </div>
@@ -67,7 +67,7 @@ class Details extends View {
             <span class="text-sm font-semibold whitespace-nowrap">Border Countries:</span>
             <div class="flex flex-wrap gap-2">
             ${this.formatProp(
-              els.borders
+              con.borders
                 ?.map((el, i) => {
                   return `
              <a
@@ -84,6 +84,10 @@ class Details extends View {
       </div>
     `;
     this.parentEl.innerHTML = markup;
+  }
+  addHandleInitialHash(handler) {
+    const hash = window.location.hash.slice(1);
+    handler(hash)
   }
 }
 export default new Details();

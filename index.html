@@ -8,6 +8,25 @@
       content="Explore comprehensive data about all countries worldwide, including population, capitals, regions, currencies, and borders with our interactive REST Countries web application."
     />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!-- Inline blocking script to apply saved theme instantly before first paint and prevent theme flash -->
+
+    <script>
+      (function () {
+        const stored = JSON.parse(localStorage.getItem('themeMode'))[0];
+        if (!stored) return;
+        const dark =
+          stored === 'dark' ||
+          (stored === 'system' &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (dark) {
+          document.documentElement.classList = 'dark';
+        } else {
+          document.documentElement.classList = 'light';
+        }
+      })();
+    </script>
+
     <script type="module" src="./src/js/main.js"></script>
     <title>REST Countries | Discover the World</title>
   </head>
@@ -63,10 +82,7 @@
           </button>
         </form>
         <details class="group relative w-full md:w-[200px]" id="filterByRegionContainer">
-          <summary
-            class="filter-select [&::-webkit-details-marker]:hidden rounded-sm"
-            aria-expanded="false"
-          >
+          <summary class="filter-select [&::-webkit-details-marker]:hidden rounded-sm">
             <span id="summary-region">Filter by Region</span>
             <svg
               class="w-4 h-4 text-sub transition-transform duration-200 group-open:rotate-180"

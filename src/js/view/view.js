@@ -3,10 +3,10 @@ export class View {
     countriesList: document.getElementById('countries-list'),
   };
   loadSpinner() {
-    const markup = `
-    <div class="rounded-full size-12 border-8 border-sub border-r-transparent animate-spin">
-    </div>`;
-    this.parentEl.innerHTML = markup;
+    // const markup = `
+    // <div class="rounded-full size-12 border-8 border-sub border-r-transparent animate-spin">
+    // </div>`;
+    // this.parentEl.innerHTML = markup;
   }
   clear() {
     this.parentEl.innerHTML = '';

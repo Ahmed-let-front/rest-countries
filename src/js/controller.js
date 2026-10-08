@@ -6,8 +6,9 @@ import details from './view/details.js';
 import filterByRegion from './view/filterByRegion.js';
 const controlThemeLocalStorage = () => {
   modal.getThemeModeFromLocalStorage();
-  if (modal.state.isValidDataFromLS) return;
+  if (!modal.state.isValidDataFromLS) return;
   const [val, src] = modal.state.themeMode;
+  console.log(val, src);
   themeTrigger.updateThemeUi(val, src);
   themeTrigger.updateCheckedAttrInInps(val);
 };

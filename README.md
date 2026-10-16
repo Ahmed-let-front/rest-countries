@@ -2,6 +2,7 @@
 
 ## Overview & Project Scope
 
+
 Welcome to the **REST Countries App**, a modern, highly responsive, and feature-real web application designed to explore countries worldwide. It allows users to seamlessly search, filter by region, view detailed country statistics, and toggle between visual themes, all while adhering to modern UI/UX patterns and top-tier performance standards.
 
 ## Hero Preview
